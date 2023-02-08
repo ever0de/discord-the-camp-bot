@@ -1,6 +1,5 @@
 import { Config } from "../constant";
-import { Ping } from "./command/ping";
-import { Send } from "./command/send";
+import { CommandList } from "./command";
 import { REST, Routes } from "discord.js";
 
 const rest = new REST({ version: "10", authPrefix: "Bot" }).setToken(
@@ -16,7 +15,7 @@ export const registerCommands = async () => {
 			Config.discord.guildId,
 		),
 		{
-			body: [Ping.command, Send.command],
+			body: CommandList.map(({ command }) => command),
 		},
 	);
 

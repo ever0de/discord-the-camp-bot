@@ -1,7 +1,3 @@
 # discord-the-camp-bot
 
-## How to get `traineeMgrSeq`
-
-1. 위문편지함 접속
-2. `selectConsolLetterA.do` Network Response 값에서 listResult
-3. TODO:
+discord slash command를 이용해 인터넷편지를 보낼 수 있도록 만든 봇입니다.

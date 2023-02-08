@@ -1,5 +1,5 @@
 import { sendMessage } from "../../thecamp/client";
-import { Soldier, getSoldier } from "../../thecamp/soldier";
+import { SOLDIER, getSoldier as fetchSoldier } from "../../thecamp/soldier";
 import { usernameToRealName } from "../converter";
 import { ChatCommand } from "./types";
 import {
@@ -12,9 +12,9 @@ const command = new SlashCommandBuilder()
 	.addStringOption((option) =>
 		option
 			.setName("name")
-			.setDescription("인터넷 편지를 보낼 대상")
+			.setDescription("훈련병 이름")
 			.addChoices(
-				...Object.keys(Soldier).map((name) => ({ name, value: name })),
+				...Object.keys(SOLDIER).map((name) => ({ name, value: name })),
 			),
 	)
 	.addStringOption((option) =>
@@ -48,7 +48,7 @@ const execute = async <T extends CacheType>(
 		return;
 	}
 
-	const soldier = getSoldier(name);
+	const soldier = await fetchSoldier(name);
 	if (soldier === undefined) {
 		await interaction.reply("훈련병 이름을 확인해주세요.");
 		return;
