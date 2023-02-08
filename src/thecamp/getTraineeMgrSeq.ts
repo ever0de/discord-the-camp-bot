@@ -42,7 +42,9 @@ export const getTraineeMgrSeq = async (
 ): Promise<string> => {
 	const { cookies } = thecamp;
 	if (isNil(cookies)) {
-		throw new Error("`.env`에 thecamp 로그인 정보 입력을 확인하세요.");
+		throw new Error(
+			"`.env`에 thecamp 로그인 정보 입력을 확인하세요. 또는 `thecamp.login()`을 호출하세요.",
+		);
 	}
 
 	const response = await client
