@@ -61,7 +61,7 @@ export const getTraineeMgrSeq = async (
 
 	if (isNil(letter)) {
 		throw new Error(
-			`해당 병사(${solider.getName()})에 첫 인터넷 편지를 찾을 수 없습니다. thecamp.or.kr에서 수동으로 인터넷 편지 하나를 보내주세요.`,
+			`해당 병사(${solider.getName()})의 첫 인터넷 편지를 찾을 수 없습니다. thecamp.or.kr에서 수동으로 인터넷 편지 하나를 보내주세요.`,
 		);
 	}
 
