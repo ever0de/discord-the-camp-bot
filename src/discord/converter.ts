@@ -14,6 +14,8 @@ export const usernameToRealName = (username: string): string => {
 			return "이해성";
 		case "washi":
 			return "코우키";
+		case "IM_YOLL_MAN":
+			return "양유진";
 
 		default:
 			return username;
