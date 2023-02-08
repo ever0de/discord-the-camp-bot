@@ -6,7 +6,7 @@
     "start:ts": "ts-node src/main.ts",
     "build": "rm -rf dist && tsc",
     "prestart": "yarn build",
-    "start": "node dist/src/main.js",
+    "start": "node dist/main.js",
     "check": "yarn rome check .",
     "fmt": "yarn rome format ."
   },

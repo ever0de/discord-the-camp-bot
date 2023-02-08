@@ -1,6 +1,5 @@
-import SoldierJson from "../../../soldier.json";
 import { sendMessage } from "../../thecamp/client";
-import { getSoldier } from "../../thecamp/soldier";
+import { Soldier, getSoldier } from "../../thecamp/soldier";
 import { usernameToRealName } from "../converter";
 import { ChatCommand } from "./types";
 import {
@@ -15,7 +14,7 @@ const command = new SlashCommandBuilder()
 			.setName("name")
 			.setDescription("인터넷 편지를 보낼 대상")
 			.addChoices(
-				...Object.keys(SoldierJson).map((name) => ({ name, value: name })),
+				...Object.keys(Soldier).map((name) => ({ name, value: name })),
 			),
 	)
 	.addStringOption((option) =>

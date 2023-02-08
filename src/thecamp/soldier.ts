@@ -1,10 +1,27 @@
-import SoldierJson from "../../soldier.json";
+import fs from "fs";
 import { fromPairs } from "lodash";
+import path from "path";
 import * as thecamp from "the-camp-lib";
 import { SoldierUnitName } from "the-camp-lib";
 
+type SoldierJson = {
+	[name: string]: {
+		birth: string;
+		enterDate: string;
+		unitName: SoldierUnitName;
+		traineeMgrSeq: string;
+	};
+};
+
+const soldierJson: SoldierJson = (() => {
+	const PATH = path.join(__dirname, "../../soldier.json");
+	const text = fs.readFileSync(PATH, "utf8");
+
+	return JSON.parse(text);
+})();
+
 export const Soldier = fromPairs(
-	Object.entries(SoldierJson).map(
+	Object.entries(soldierJson).map(
 		([name, { birth, enterDate, unitName, traineeMgrSeq }]) => {
 			const soldier = new thecamp.Soldier(
 				name,
